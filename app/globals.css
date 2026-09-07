@@ -2,7 +2,8 @@
 
 :root {
   --background: #1E3A78;
-  --text-color: #FFD700;
+  --foreground: #FFD700;
+  --text-color-yellow: #FFD700;
   --neutral-color: #0B0C10;
   --accent-color: #5D8DC6;
 }
@@ -16,6 +17,7 @@
   --color-text-color: var(--text-color);
   --color-neutral-color: var(--neutral-color);
   --color-accent-color: var(--accent-color);
+  --color-yellow-color: var(--text-color-yellow);
 
   --font-pinyon: var(--font-pinyon);
   --font-andada: var(--font-andada);

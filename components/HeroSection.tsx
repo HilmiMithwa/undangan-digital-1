@@ -50,10 +50,13 @@ export default function HeroSection() {
               sizes="100vw"
             />
             <div className="absolute inset-0 z-20 bg-black/60"></div>
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4">
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-2">
                 <h1 className="text-2xl md:text-5xl font-light mb-4">The Wedding Of</h1>
-                <h2 className="text-7xl text-text-color font-pinyon">Bob & Alice</h2>
+                <h2 className="text-7xl text-text-color font-pinyon">Hilmi & Giselle</h2>
               <Countdown targetDate={TARGET_DATE} />
+              <button className="bg-accent-color text-white px-6 py-3 rounded-full  hover:bg-opacity-80 transition duration-300">
+                Let's see our journey goes
+              </button>
             </div>
           </SwiperSlide>
         ))}
