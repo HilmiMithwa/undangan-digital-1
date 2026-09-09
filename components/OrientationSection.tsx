@@ -1,12 +1,33 @@
 "use client";
-import { motion } from "motion/react";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import fotoHilmi from "../public/fotoNikah/foto-hilmi.jpeg";
 import fotoGiselle from "../public/fotoNikah/foto-giselle.jpeg";
 
-export default function OrientationSection() {
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.25,
+      delayChildren: 0.1,
+    },
+  },
+};
 
-  // Data Bride & Groom 
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  },
+};
+
+export default function OrientationSection() {
   const brideDetails = {
     name: "Aeri Uchinaga",
     parents: "Ayah dan Ibu Giselle",
@@ -21,11 +42,16 @@ export default function OrientationSection() {
 
   return (
     <>
-      <section className="text-white py-12 px-6">
-        <div className="flex flex-col items-center justify-center gap-8">
-          
-
-          <div className="text-center space-y-3 max-w-lg">
+      <section className="text-white py-12 px-6 overflow-hidden">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col items-center justify-center gap-8"
+        >
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center space-y-3 max-w-lg">
             <h2 className="text-5xl font-pinyon text-yellow-color">
               With Love
             </h2>
@@ -33,19 +59,25 @@ export default function OrientationSection() {
               Dengan rahmat Tuhan Yang Maha Esa kami mengundang
               Bapak/Ibu/Saudara/I untuk menghadiri pernikahan kami:
             </h1>
-          </div>
-
+          </motion.div>
 
           <div className="flex flex-col gap-12 text-accent-color">
-            
             {/* The Bride */}
-            <div className="flex flex-col items-center gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
               <h3 className="text-5xl font-pinyon text-yellow-color">The Bride</h3>
-              <Image
-                src={fotoGiselle}
-                alt="The Bride"
-                className="w-[200px] h-[200px] rounded-full object-cover shadow-lg"
-              />
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden rounded-full shadow-lg"
+              >
+                <Image
+                  src={fotoGiselle}
+                  alt="The Bride"
+                  className="w-[200px] h-[200px] rounded-full object-cover"
+                />
+              </motion.div>
+
               <div className="flex flex-col items-center gap-1 text-center">
                 <h4 className="text-3xl font-bold">{brideDetails.name}</h4>
                 <h5 className="text-sm opacity-80 mt-1">Putri Dari:</h5>
@@ -59,16 +91,24 @@ export default function OrientationSection() {
                   {brideDetails.instagram}
                 </a>
               </div>
-            </div>
+            </motion.div>
 
             {/* The Groom */}
-            <div className="flex flex-col items-center gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
               <h3 className="text-5xl font-pinyon text-yellow-color">The Groom</h3>
-              <Image
-                src={fotoHilmi}
-                alt="The Groom"
-                className="w-[200px] h-[200px] rounded-full object-cover shadow-lg"
-              />
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden rounded-full shadow-lg"
+              >
+                <Image
+                  src={fotoHilmi}
+                  alt="The Groom"
+                  className="w-[200px] h-[200px] rounded-full object-cover"
+                />
+              </motion.div>
+
               <div className="flex flex-col items-center gap-1 text-center">
                 <h4 className="text-3xl font-bold">{groomDetails.name}</h4>
                 <h5 className="text-sm opacity-80 mt-1">Putra Dari:</h5>
@@ -82,10 +122,9 @@ export default function OrientationSection() {
                   {groomDetails.instagram}
                 </a>
               </div>
-            </div>
-
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </>
   );
