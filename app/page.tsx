@@ -6,6 +6,10 @@ import HeroSection from "@/components/HeroSection";
 import OrientationSection from "@/components/OrientationSection";
 import AkaddanResepsi from "@/components/AkaddanResepsi";
 import JourneyOfLove from "@/components/JourneyOfLove";
+import OurMoments from "@/components/OurMoments";
+import RSVP from "@/components/rsvp";
+import WeddingGift from "@/components/WeddingGift";
+import ThankYou from "@/components/ThankYou";
 
 export default function Home() {
   return (
@@ -16,6 +20,10 @@ export default function Home() {
         <OrientationSection />
         <AkaddanResepsi />
         <JourneyOfLove />
+        <OurMoments />
+        <RSVP />
+        <WeddingGift />
+        <ThankYou />
       </StarfieldBackground>
 
       

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { motion } from "motion/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 
 import Countdown from "./Countdown";
 
@@ -21,7 +21,14 @@ const slidesImage = [
 ];
 
 export default function HeroSection() {
-    const TARGET_DATE = "2026-12-31T23:59:59";
+  const TARGET_DATE = "2026-12-31T23:59:59";
+
+  const goToOrientation = () => {
+    document.getElementById("orientation")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <section>
@@ -54,9 +61,14 @@ export default function HeroSection() {
                 <h1 className="text-2xl md:text-5xl font-light mb-4">The Wedding Of</h1>
                 <h2 className="text-7xl text-text-color font-pinyon">Alice & Bob</h2>
               <Countdown targetDate={TARGET_DATE} />
-              <button className="bg-accent-color text-white px-6 py-3 rounded-full  hover:bg-opacity-80 transition duration-300">
-                Let's see our journey goes
-              </button>
+              <motion.button
+                type="button"
+                onClick={goToOrientation}
+                whileTap={{ scale: 0.96 }}
+                className="rounded-full bg-accent-color px-6 py-3 text-white transition duration-300 hover:bg-accent-color/80 focus:outline-none focus:ring-2 focus:ring-yellow-color/60"
+              >
+                Let&apos;s see our journey goes
+              </motion.button>
             </div>
           </SwiperSlide>
         ))}
