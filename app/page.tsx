@@ -5,6 +5,7 @@ import MusicPlayer from "@/components/MusicPlayer";
 import HeroSection from "@/components/HeroSection";
 import OrientationSection from "@/components/OrientationSection";
 import AkaddanResepsi from "@/components/AkaddanResepsi";
+import JourneyOfLove from "@/components/JourneyOfLove";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <StarfieldBackground className="relative w-full min-h-screen px-10 flex flex-col py-10">
         <OrientationSection />
         <AkaddanResepsi />
+        <JourneyOfLove />
       </StarfieldBackground>
 
       
